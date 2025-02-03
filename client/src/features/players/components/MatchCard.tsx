@@ -44,35 +44,43 @@ const MatchCard = () => {
 
 	return (
 		<div className="flex flex-col items-center gap-8">
-			<h2 className="text-xl font-semibold border-2 py-1 px-2 bg-white shadow-lg">
+			<h2 className="text-xl text-black font-black text-center mb-12 bg-white border-4 border-black py-2 px-6 shadow-xl inline-block transform -rotate-2">
 				Today's Card
 			</h2>
-			<Team players={playersTeam1} backgroundColor="bg-sky-200" />
+			<Team
+				players={playersTeam1}
+				backgroundColor="bg-sky-200"
+				isBlueTeam={true}
+			/>
 			{/* <Swords size={36} className="text-black" /> */}
+
 			<Button variant="blue" onClick={handleBlueVote}>
 				Vote Blue
 			</Button>
-			<div className="relative w-[60%]">
-				<Progress value={bluePercentage} />
-				{/* Pourcentage bleu */}
-				<div
-					className="absolute top-1/2 -translate-y-1/2 text-xs font-semibold text-black"
-					style={{ left: `${bluePercentage / 2}%` }}
-				>
-					{bluePercentage.toFixed(1)}%
+
+			<div className=" flex items-center gap-2 w-[80%]">
+				<div className="flex flex-col items-center text-sm">
+					<span className="font-bold">{bluePercentage.toFixed(1)}%</span>
+					<span className="font-medium">({blueVotes})</span>
 				</div>
-				{/* Pourcentage rouge */}
-				<div
-					className="absolute top-1/2 -translate-y-1/2 text-xs font-semibold text-black"
-					style={{ left: `${bluePercentage + redPercentage / 2}%` }}
-				>
-					{redPercentage.toFixed(1)}%
+				<Progress
+					className="h-6 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
+					value={bluePercentage}
+				/>
+				<div className="flex flex-col text-sm">
+					<span className="font-bold">{redPercentage.toFixed(1)}%</span>
+					<span className="font-medium">({redVotes})</span>
 				</div>
 			</div>
+
 			<Button variant="red" onClick={handleRedVote}>
 				Vote Red
 			</Button>
-			<Team players={playersTeam2} backgroundColor="bg-red-200" />
+			<Team
+				players={playersTeam2}
+				backgroundColor="bg-red-200"
+				isBlueTeam={false}
+			/>
 		</div>
 	);
 };

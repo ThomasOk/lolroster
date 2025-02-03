@@ -5,6 +5,7 @@ import SupportIconSvg from "../assets/roles/support.svg";
 import MidIconSvg from "../assets/roles/mid.svg";
 import JungleIconSvg from "../assets/roles/jungle.svg";
 import TopIconSvg from "../assets/roles/top.svg";
+import { polyfillCountryFlagEmojis } from "country-flag-emoji-polyfill";
 
 // type RoleIcons = {
 // 	[key in Role]: string;
@@ -17,7 +18,7 @@ import TopIconSvg from "../assets/roles/top.svg";
 // 	Support: supportIcon,
 // 	Top: topIcon,
 // };
-
+polyfillCountryFlagEmojis();
 const roleSvgIcons: { [key in Role]: React.FC<{ className?: string }> } = {
 	Bot: BotIconSvg,
 	Jungle: JungleIconSvg,
@@ -45,7 +46,12 @@ const PlayerInfo = ({
 					src={player?.imageUrl}
 					alt={`${player?.pseudo} photo`}
 				/>
-				<div className="font-medium">{player?.pseudo}</div>
+				<div>
+					<span className="font-medium font-permanent-marker">
+						{player?.pseudo}{" "}
+					</span>
+					<span className="">🇫🇮</span>
+				</div>
 			</div>
 			{/* <img
 				src={player?.role ? roleIcons[player.role] : ""}

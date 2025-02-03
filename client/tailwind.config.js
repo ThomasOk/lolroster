@@ -34,6 +34,9 @@ export default {
 				base: "500",
 				heading: "700",
 			},
+			fontFamily: {
+				"permanent-marker": ['"Permanent Marker"', "cursive"],
+			},
 		},
 	},
 	plugins: [require("tailwindcss-animate")],
