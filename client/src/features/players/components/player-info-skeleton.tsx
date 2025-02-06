@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 
-const PlayerInfoSkeleton = ({
+export const PlayerInfoSkeleton = ({
 	backgroundColor,
 }: {
 	backgroundColor: string;
@@ -19,4 +19,3 @@ const PlayerInfoSkeleton = ({
 		</div>
 	</div>
 );
-export default PlayerInfoSkeleton;

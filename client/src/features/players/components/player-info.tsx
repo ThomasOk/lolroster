@@ -31,7 +31,7 @@ type PlayerInfoProps = {
 	backgroundColor: string;
 };
 
-const PlayerInfo = ({
+export const PlayerInfo = ({
 	player,
 
 	backgroundColor,
@@ -73,5 +73,3 @@ const PlayerInfo = ({
 		</div>
 	);
 };
-
-export default PlayerInfo;

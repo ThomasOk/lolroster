@@ -1,5 +1,5 @@
 import { Player } from "../types/player-types";
-import PlayerInfo from "./PlayerInfo";
+import { PlayerInfo } from "./player-info";
 
 type TeamProps = {
 	players: Player[];
@@ -40,7 +40,7 @@ const getTeamTransform = (index: number, isBlueTeam: boolean) => {
 	};
 };
 
-const Team = ({ players, backgroundColor, isBlueTeam }: TeamProps) => {
+export const Team = ({ players, backgroundColor, isBlueTeam }: TeamProps) => {
 	return (
 		<div className="flex flex-col sm:flex-row sm:flex-wrap sm:justify-center">
 			{players.map((player, index) => (
@@ -66,4 +66,3 @@ const Team = ({ players, backgroundColor, isBlueTeam }: TeamProps) => {
 		</div>
 	);
 };
-export default Team;

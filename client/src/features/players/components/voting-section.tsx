@@ -1,7 +1,7 @@
 import { Progress } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
 
-const VotingSection = ({
+export const VotingSection = ({
 	blueVotes,
 	redVotes,
 	onBlueVote,
@@ -47,4 +47,3 @@ const VotingSection = ({
 		</>
 	);
 };
-export default VotingSection;

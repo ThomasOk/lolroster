@@ -10,6 +10,13 @@ const router = createBrowserRouter([
 			return { Component: LandingRoute };
 		},
 	},
+	{
+		path: paths.about.path,
+		lazy: async () => {
+			const { AboutRoute } = await import("./routes/about");
+			return { Component: AboutRoute };
+		},
+	},
 ]);
 
 export const AppRouter = () => {

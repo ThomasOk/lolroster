@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import players from "@/features/players/mocks/players-data-eu";
-import Team from "@/features/players/components/Team";
+import { Team } from "@/features/players/components/team";
 import { Player, Role } from "@/features/players/types/player-types";
-import VotingSection from "@/features/players/components/VotingSection";
-import TeamSkeleton from "@/features/players/components/TeamSkeleton";
+import { VotingSection } from "@/features/players/components/voting-section";
+import { TeamSkeleton } from "@/features/players/components/team-skeleton";
 
 const getRandomPlayersByRole = (
 	role: Role,
@@ -28,7 +28,7 @@ const generateRandomTeam = (excludePlayers: Player[] = []): Player[] => {
 	return team;
 };
 
-const MatchCard = () => {
+export const MatchCard = () => {
 	const [playersTeam1, setPlayersTeam1] = useState<Player[]>([]);
 	const [playersTeam2, setPlayersTeam2] = useState<Player[]>([]);
 	const [loading, setLoading] = useState(true);
@@ -106,4 +106,3 @@ const MatchCard = () => {
 		</div>
 	);
 };
-export default MatchCard;
