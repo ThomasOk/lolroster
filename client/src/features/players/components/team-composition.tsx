@@ -38,7 +38,11 @@ const getTeamTransform = (index: number, isBlueTeam: boolean) => {
 	};
 };
 
-export const Team = ({ players, backgroundColor, isBlueTeam }: TeamProps) => {
+export const TeamComposition = ({
+	players,
+	backgroundColor,
+	isBlueTeam,
+}: TeamProps) => {
 	return (
 		<div className="flex flex-col sm:flex-row sm:flex-wrap sm:justify-center">
 			{players.map((player, index) => (

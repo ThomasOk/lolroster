@@ -1,4 +1,4 @@
-import { Team } from "@/features/players/components/team";
+import { TeamComposition } from "@/features/players/components/team-composition";
 import { VotingSection } from "@/features/players/components/voting-section";
 import { TeamSkeleton } from "@/features/players/components/team-skeleton";
 import { usePlayers } from "../context/players-context";
@@ -33,7 +33,7 @@ export const MatchCard = () => {
 				</>
 			) : (
 				<>
-					<Team
+					<TeamComposition
 						players={playersTeam1}
 						backgroundColor="bg-sky-200"
 						isBlueTeam={true}
@@ -44,7 +44,7 @@ export const MatchCard = () => {
 						onBlueVote={handleBlueVote}
 						onRedVote={handleRedVote}
 					/>
-					<Team
+					<TeamComposition
 						players={playersTeam2}
 						backgroundColor="bg-red-200"
 						isBlueTeam={false}
