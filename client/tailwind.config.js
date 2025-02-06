@@ -35,7 +35,7 @@ export default {
 				heading: "700",
 			},
 			fontFamily: {
-				"permanent-marker": ['"Permanent Marker"', "cursive"],
+				cursive: ["cursive"],
 			},
 		},
 	},

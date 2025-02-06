@@ -10,6 +10,7 @@ const players: Player[] = [
 		role: "Mid",
 		imageUrl:
 			"https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/9/90/G2_Caps_2024_Split_3.png",
+		leaguepediaUrl: "https://lol.fandom.com/wiki/Caps",
 	},
 	{
 		pseudo: "Rekkles",
@@ -20,6 +21,7 @@ const players: Player[] = [
 		role: "Bot",
 		imageUrl:
 			"https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/d/db/T1.EA_Rekkles_2024_Split_2.png",
+		leaguepediaUrl: "https://lol.fandom.com/wiki/Rekkles",
 	},
 	{
 		pseudo: "Faker",
@@ -30,6 +32,7 @@ const players: Player[] = [
 		role: "Mid",
 		imageUrl:
 			"https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/8/8d/T1_Faker_2024_Split_2.png/",
+		leaguepediaUrl: "https://lol.fandom.com/wiki/Faker",
 	},
 	{
 		pseudo: "Bo",
@@ -40,6 +43,7 @@ const players: Player[] = [
 		role: "Jungle",
 		imageUrl:
 			"https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/b/bb/KC_Bo_2024_Split_1.png",
+		leaguepediaUrl: "https://lol.fandom.com/wiki/Bo",
 	},
 	{
 		pseudo: "Perkz",
@@ -50,6 +54,7 @@ const players: Player[] = [
 		role: "Mid",
 		imageUrl:
 			"https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/6/6a/TH_Perkz_2024_Split_1.png",
+		leaguepediaUrl: "https://lol.fandom.com/wiki/Perkz",
 	},
 	{
 		pseudo: "Jankos",
@@ -60,6 +65,7 @@ const players: Player[] = [
 		role: "Jungle",
 		imageUrl:
 			"https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/5/5c/TH_Jankos_2024_Split_1.png",
+		leaguepediaUrl: "https://lol.fandom.com/wiki/Jankos",
 	},
 	{
 		pseudo: "Uzi",
@@ -69,7 +75,8 @@ const players: Player[] = [
 		country: "China",
 		role: "Bot",
 		imageUrl:
-			"https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/8/8b/GM_Uzi_Legend_Cup_2024.png/revision/latest?cb=20240520155325",
+			"https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/a/ab/GM_Uzi_Legend_Cup_Season_2.png",
+		leaguepediaUrl: "https://lol.fandom.com/wiki/Uzi_(Jian_Zi-Hao)",
 	},
 	{
 		pseudo: "Doublelift",
@@ -80,6 +87,7 @@ const players: Player[] = [
 		role: "Bot",
 		imageUrl:
 			"https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/2/24/100_Doublelift_2023_Split_1.png",
+		leaguepediaUrl: "https://lol.fandom.com/wiki/Doublelift",
 	},
 	{
 		pseudo: "Hans Sama",
@@ -90,6 +98,7 @@ const players: Player[] = [
 		role: "Bot",
 		imageUrl:
 			"https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/2/29/G2_Hans_Sama_2024_Split_3.png",
+		leaguepediaUrl: "https://lol.fandom.com/wiki/Hans_Sama",
 	},
 	{
 		pseudo: "Humanoid",
@@ -100,6 +109,7 @@ const players: Player[] = [
 		role: "Mid",
 		imageUrl:
 			"https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/1/1e/FNC_Humanoid_2024_Split_3.png",
+		leaguepediaUrl: "https://lol.fandom.com/wiki/Humanoid",
 	},
 	{
 		pseudo: "Targamas",
@@ -110,6 +120,7 @@ const players: Player[] = [
 		role: "Support",
 		imageUrl:
 			"https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/c/cb/KC_Targamas_2024_Split_1.png",
+		leaguepediaUrl: "https://lol.fandom.com/wiki/Targamas",
 	},
 	{
 		pseudo: "Bin",
@@ -120,6 +131,7 @@ const players: Player[] = [
 		role: "Top",
 		imageUrl:
 			"https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/3/34/BLG_Bin_Worlds_2024.png",
+		leaguepediaUrl: "https://lol.fandom.com/wiki/Bin_(Chen_Ze-Bin)",
 	},
 	{
 		pseudo: "Yike",
@@ -130,6 +142,7 @@ const players: Player[] = [
 		role: "Jungle",
 		imageUrl:
 			"https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/4/4b/G2_Yike_2024_Split_3.png",
+		leaguepediaUrl: "https://lol.fandom.com/wiki/Yike",
 	},
 	{
 		pseudo: "knight",
@@ -140,6 +153,7 @@ const players: Player[] = [
 		role: "Mid",
 		imageUrl:
 			"https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/1/17/BLG_knight_Worlds_2024.png",
+		leaguepediaUrl: "https://lol.fandom.com/wiki/Knight_(Zhuo_Ding)",
 	},
 	{
 		pseudo: "Wunder",
@@ -150,6 +164,7 @@ const players: Player[] = [
 		role: "Top",
 		imageUrl:
 			"https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/e/e4/TH_Wunder_2024_Split_1.png",
+		leaguepediaUrl: "https://lol.fandom.com/wiki/Wunder",
 	},
 	{
 		pseudo: "Gala",
@@ -160,16 +175,18 @@ const players: Player[] = [
 		role: "Bot",
 		imageUrl:
 			"https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/d/dc/LNG_GALA_Worlds_2024.png",
+		leaguepediaUrl: "https://lol.fandom.com/wiki/GALA",
 	},
 	{
 		pseudo: "Keria",
 		firstName: "Ryu",
 		lastName: "Min-seok",
 		birthDate: "2002-10-14",
-		country: "Korea",
+		country: "South Korea",
 		role: "Support",
 		imageUrl:
 			"https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/9/92/T1_Keria_2024_Split_2.png",
+		leaguepediaUrl: "https://lol.fandom.com/wiki/Keria",
 	},
 ];
 
