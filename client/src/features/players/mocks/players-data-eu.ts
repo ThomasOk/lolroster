@@ -458,7 +458,7 @@ const players: Player[] = [
 		lastName: "Haudegond",
 		birthDate: "2005-07-20",
 		country: "France",
-		role: "Jungle",
+		role: "Mid",
 		imageUrl:
 			"https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/b/b8/TH_Kamiloo_2025_Split_1.png",
 		leaguepediaUrl: "https://lol.fandom.com/wiki/Kamiloo",
