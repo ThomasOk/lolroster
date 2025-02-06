@@ -381,7 +381,7 @@ const players: Player[] = [
 		lastName: "Dong-hyeon",
 		birthDate: "2004-06-09",
 		country: "South Korea",
-		role: "Bot",
+		role: "Support",
 		imageUrl:
 			"https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/9/9f/SK_Loopy_2025_Split_1.png",
 		leaguepediaUrl: "https://lol.fandom.com/wiki/Loopy",
