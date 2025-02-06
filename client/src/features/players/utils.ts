@@ -1,10 +1,39 @@
-import { countryToAlpha2 } from "country-to-iso";
 import { polyfillCountryFlagEmojis } from "country-flag-emoji-polyfill";
 import { Player, Role } from "./types/player-types";
 import players from "./mocks/players-data-eu";
 
+const countryMap: Record<string, string> = {
+	// Europe
+	Belgium: "BE",
+	Croatia: "HR",
+	"Czech Republic": "CZ",
+	Denmark: "DK",
+	France: "FR",
+	Poland: "PL",
+	Sweden: "SE",
+	Spain: "ES",
+	Germany: "DE",
+	Slovenia: "SI",
+	Turkey: "TR",
+	Greece: "GR",
+	Lithuania: "LT",
+	Bulgaria: "BG",
+
+	// Asia
+	China: "CN",
+	"South Korea": "KR",
+
+	// America
+	"United States": "US",
+	Canada: "CA",
+};
+
+const getCountryCode = (countryName: string): string => {
+	return countryMap[countryName] || "UN"; // "UN" pour Unknown/Undefined si le pays n'est pas trouvé
+};
+
 export const countryToEmoji = (country: string) => {
-	const countryCode = countryToAlpha2(country);
+	const countryCode = getCountryCode(country);
 	polyfillCountryFlagEmojis();
 	return countryCode
 		?.split("")
