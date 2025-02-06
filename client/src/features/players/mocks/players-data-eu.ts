@@ -535,7 +535,7 @@ const players: Player[] = [
 		lastName: "Iliev",
 		birthDate: "1995-04-30",
 		country: "Bulgaria",
-		role: "Bot",
+		role: "Support",
 		imageUrl:
 			"https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/7/78/VIT_Hylissang_2025_Split_1.png",
 		leaguepediaUrl: "https://lol.fandom.com/wiki/Hylissang",
