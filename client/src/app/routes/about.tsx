@@ -9,15 +9,16 @@ export const AboutRoute = () => {
 				</h2>
 				<div className="prose prose-lg dark:prose-invert flex flex-col gap-6 max-w-3xl mx-auto px-4">
 					<section className="text-center font-medium">
-						<p className="text-md mb-6">⚠️ The app is still in development.</p>
+						<p className="text-md mb-6">
+							⚠️ The app is currently under development.
+						</p>
 					</section>
 
 					<section>
 						<h3 className="text-lg font-bold mb-2">❓ What is it?</h3>
 						<p>
-							The idea is to create create hypothetical matchups between
-							professional League of Legends players, and you get to vote for
-							the best team!
+							The idea is to create hypothetical matchups between professional
+							League of Legends players, and you get to vote for the best team!
 						</p>
 						<p>
 							Each team is randomly generated from a selection of pro players.
@@ -25,9 +26,8 @@ export const AboutRoute = () => {
 							included.
 						</p>
 						<p>
-							For now, while the daily automatic team generation is still a work
-							in progress, you can refresh the page to generate new teams
-							manually.
+							For now, since the daily automatic team generation is still a work
+							in progress, you can generate new teams manually.
 						</p>
 					</section>
 
