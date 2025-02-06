@@ -8,7 +8,6 @@ type TeamProps = {
 };
 
 const getTeamTransform = (index: number, isBlueTeam: boolean) => {
-	// Disposition pour l'équipe bleue : légèrement inclinée vers la droite
 	const blueTeam = {
 		rotations: [2, -1, 3, -2, 1],
 		translations: [
@@ -20,7 +19,6 @@ const getTeamTransform = (index: number, isBlueTeam: boolean) => {
 		],
 	};
 
-	// Disposition pour l'équipe rouge : légèrement inclinée vers la gauche
 	const redTeam = {
 		rotations: [-3, 2, -1, 3, -2],
 		translations: [

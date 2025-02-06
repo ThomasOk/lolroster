@@ -7,17 +7,6 @@ import JungleIconSvg from "../assets/roles/jungle.svg";
 import TopIconSvg from "../assets/roles/top.svg";
 import { countryToEmoji } from "../utils";
 
-// type RoleIcons = {
-// 	[key in Role]: string;
-// };
-
-// const roleIcons: RoleIcons = {
-// 	Bot: botIcon,
-// 	Jungle: jungleIcon,
-// 	Mid: midIcon,
-// 	Support: supportIcon,
-// 	Top: topIcon,
-// };
 const roleSvgIcons: { [key in Role]: React.FC<{ className?: string }> } = {
 	Bot: BotIconSvg,
 	Jungle: JungleIconSvg,
@@ -61,11 +50,6 @@ export const PlayerInfo = ({
 					<span className="">{countryToEmoji(player?.country)}</span>
 				</div>
 			</div>
-			{/* <img
-				src={player?.role ? roleIcons[player.role] : ""}
-				alt={`${player?.role} role`}
-				className="h-8 w-8"
-			/> */}
 			{player?.role &&
 				React.createElement(roleSvgIcons[player.role], {
 					className: "text-black h-4 mt-1",

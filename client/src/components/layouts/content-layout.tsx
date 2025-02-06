@@ -2,7 +2,6 @@ import { Header } from "@/components/header";
 
 type ContentLayoutProps = {
 	children: React.ReactNode;
-	//title: string;
 };
 
 export const ContentLayout = ({ children }: ContentLayoutProps) => {

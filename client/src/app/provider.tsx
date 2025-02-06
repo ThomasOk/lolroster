@@ -1,4 +1,5 @@
 import { ThemeProvider } from "@/components/theme/theme-provider";
+import { PlayersProvider } from "@/features/players/context/players-context";
 import { type ReactNode } from "react";
 
 type AppProviderProps = {
@@ -8,7 +9,7 @@ type AppProviderProps = {
 export const AppProvider = ({ children }: AppProviderProps) => {
 	return (
 		<ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-			{children}
+			<PlayersProvider>{children}</PlayersProvider>
 		</ThemeProvider>
 	);
 };
