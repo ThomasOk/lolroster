@@ -8,7 +8,7 @@ type AppProviderProps = {
 
 export const AppProvider = ({ children }: AppProviderProps) => {
 	return (
-		<ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+		<ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
 			<PlayersProvider>{children}</PlayersProvider>
 		</ThemeProvider>
 	);
