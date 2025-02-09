@@ -1,0 +1,4 @@
+node_modules/
+.env
+repopack-output.txt
+backend.txt
