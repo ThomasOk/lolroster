@@ -1,17 +1,21 @@
 import express from "express";
 import cors from "cors";
 import playerRoutes from "@/api/players/players-routes";
+import matchupsRoutes from "@/api/matchups/matchups-routes";
 import { errorHandler } from "@/middleware/error";
 import { db } from "@/db";
 import { playersTable } from "@/db/schema/players";
+import path from "path";
 
 const app = express();
 
+app.use("/public", express.static(path.join(__dirname, "public")));
 app.use(cors());
 app.use(express.json());
 
 // Routes
 app.use("/api/players", playerRoutes);
+app.use("/api/matchups", matchupsRoutes);
 
 // Error handling
 app.use(errorHandler);
