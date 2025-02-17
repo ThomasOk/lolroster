@@ -29,6 +29,11 @@ export const commentsTable = pgTable("comments", {
 
 export const insertCommentSchema = createInsertSchema(commentsTable);
 export const selectCommentSchema = createSelectSchema(commentsTable);
+export const createCommentSchema = z.object({
+	matchupId: z.number(),
+	content: z.string().min(1).max(1000),
+	parentId: z.number().optional(),
+});
 
 export type Comment = z.infer<typeof selectCommentSchema>;
 export type NewComment = z.infer<typeof insertCommentSchema>;

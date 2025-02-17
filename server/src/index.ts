@@ -4,6 +4,8 @@ import cookieParser from "cookie-parser";
 import passport from "passport";
 import playerRoutes from "@/api/players/players-routes";
 import matchupsRoutes from "@/api/matchups/matchups-routes";
+import votesRoutes from "@/api/votes/votes-routes";
+import commentsRoutes from "@/api/comments/comments-routes";
 import authRoutes from "@/api/auth/auth-routes";
 import userRoutes from "@/api/users/users-routes";
 import { errorHandler } from "@/middleware/error";
@@ -30,6 +32,8 @@ app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/players", playerRoutes);
 app.use("/api/matchups", matchupsRoutes);
+app.use("/api/votes", votesRoutes);
+app.use("/api/comments", commentsRoutes);
 
 // Error handling
 app.use(errorHandler);

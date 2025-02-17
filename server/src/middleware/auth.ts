@@ -68,3 +68,48 @@ export const requireAuth = async (
 		next(error);
 	}
 };
+
+export const authOptional = async (
+	req: Request,
+	res: Response,
+	next: NextFunction
+) => {
+	try {
+		const accessToken = req.cookies.id;
+		const refreshToken = req.cookies.rid;
+
+		if (!accessToken && !refreshToken) {
+			return next();
+		}
+
+		try {
+			const decoded = verifyAccessToken(accessToken);
+			req.userId = decoded.userId;
+			return next();
+		} catch (error) {
+			if (!refreshToken) {
+				return next();
+			}
+
+			const decoded = verifyRefreshToken(refreshToken);
+			const user = await db
+				.select()
+				.from(usersTable)
+				.where(eq(usersTable.id, decoded.userId))
+				.limit(1);
+
+			if (
+				!user[0] ||
+				user[0].refreshTokenVersion !== decoded.refreshTokenVersion
+			) {
+				return next();
+			}
+
+			req.userId = decoded.userId;
+			sendAuthTokens(res, user[0], "refresh");
+			return next();
+		}
+	} catch (error) {
+		next();
+	}
+};

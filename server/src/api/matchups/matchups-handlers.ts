@@ -2,8 +2,9 @@ import { Request, Response } from "express";
 import * as matchupService from "@/api/matchups/matchups-service";
 import { AppError } from "@/utils/error";
 import { StatusCodes } from "http-status-codes";
+import * as votesService from "@/api/votes/votes-service";
 
-export const getCurrentMatchup = async (_req: Request, res: Response) => {
+export const getCurrentMatchup = async (req: Request, res: Response) => {
 	const matchup = await matchupService.getDailyMatchup();
 
 	if (!matchup) {
@@ -13,16 +14,25 @@ export const getCurrentMatchup = async (_req: Request, res: Response) => {
 	const team1 = await matchupService.getTeamPlayers(matchup.team1);
 	const team2 = await matchupService.getTeamPlayers(matchup.team2);
 
+	let userVote = null;
+
+	if (req.userId) {
+		const vote = await votesService.getUserVote(req.userId, matchup.id);
+		if (vote) {
+			userVote = vote.team;
+		}
+	}
+
 	res.json({
 		...matchup,
 		team1,
 		team2,
+		userVote,
 	});
 };
 
 export const updateVotes = async (req: Request, res: Response) => {
 	try {
-		console.log("Vote request body:", req.body);
 		const { matchupId, team } = req.body;
 
 		if (!matchupId) {
@@ -33,9 +43,7 @@ export const updateVotes = async (req: Request, res: Response) => {
 			throw new AppError(StatusCodes.BAD_REQUEST, "Invalid team value");
 		}
 
-		console.log("Updating votes for matchup:", matchupId, "team:", team);
 		const updatedMatchups = await matchupService.updateVotes(matchupId, team);
-		console.log("Updated matchups:", updatedMatchups);
 
 		if (!updatedMatchups || updatedMatchups.length === 0) {
 			throw new AppError(StatusCodes.NOT_FOUND, "Matchup not found");

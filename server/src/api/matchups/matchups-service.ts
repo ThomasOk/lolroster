@@ -3,6 +3,8 @@ import { matchupsTable } from "@/db/schema/matchups";
 import { eq, inArray, sql } from "drizzle-orm";
 import { generateRandomTeam } from "@/api/matchups/utils";
 import { Player, playersTable } from "@/db/schema/players";
+import { AppError } from "@/utils/error";
+import { StatusCodes } from "http-status-codes";
 
 export const getDailyMatchup = async () => {
 	const matchup = await db
@@ -50,6 +52,20 @@ const generateNewDailyMatch = async () => {
 		.returning();
 
 	return newMatch[0];
+};
+
+export const getMatchupById = async (id: number) => {
+	const matchup = await db
+		.select()
+		.from(matchupsTable)
+		.where(eq(matchupsTable.id, id))
+		.limit(1);
+
+	if (!matchup[0]) {
+		throw new AppError(StatusCodes.NOT_FOUND, "Matchup not found");
+	}
+
+	return matchup[0];
 };
 
 export const updateVotes = async (matchId: number, team: "blue" | "red") => {

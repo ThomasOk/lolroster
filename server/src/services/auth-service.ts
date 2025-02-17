@@ -10,6 +10,14 @@ export class AuthService {
 		provider: string,
 		userData: any
 	): Promise<User> {
+		const normalizedUserData = {
+			email:
+				provider === "google" ? userData.emails?.[0]?.value : userData.email,
+			username:
+				provider === "google" ? userData.displayName : userData.username,
+			displayName: null, // Always set to null to force display name setup
+		};
+
 		// existing provider
 		const existingProvider = await db
 			.select()
