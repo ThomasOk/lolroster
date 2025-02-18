@@ -15,7 +15,7 @@ export type RefreshTokenData = {
 export const cookieOptions = {
 	httpOnly: true,
 	secure: process.env.NODE_ENV === "production",
-	sameSite: "none" as const,
+	sameSite: "lax" as const,
 	path: "/",
 	domain:
 		process.env.NODE_ENV === "production"
