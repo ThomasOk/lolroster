@@ -709,7 +709,7 @@ const players = [
 	},
 ];
 
-const seed = async () => {
+export const seed = async () => {
 	const t0 = performance.now();
 	console.log("🌱 Seeding database...");
 

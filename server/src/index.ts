@@ -71,6 +71,24 @@ app.listen(PORT, async () => {
 	try {
 		await db.select().from(playersTable).limit(1);
 		console.info("✅ Database connected successfully");
+
+		const playersCount = await db.select().from(playersTable).limit(1);
+
+		if (playersCount.length === 0) {
+			console.info("⚠️ Players table is empty, seeding database...");
+			try {
+				// Importer et exécuter le seed
+				const { seed } = await import("@/db/seed");
+				await seed();
+				console.info("✅ Database seeded successfully");
+			} catch (seedError) {
+				console.error("❌ Seeding failed:", seedError);
+				process.exit(1);
+			}
+		} else {
+			console.info("✅ Database already contains data");
+		}
+
 		console.info(`Server is running at http://localhost:${PORT}`);
 	} catch (error) {
 		console.error("❌ Failed to connect to database:", error);

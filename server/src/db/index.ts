@@ -14,21 +14,21 @@ const pool = new Pool({
 			: undefined,
 });
 
-pool.on("error", (err) => {
-	logger.error("Unexpected error on idle client", err);
-	process.exit(-1);
-});
+// pool.on("error", (err) => {
+// 	logger.error("Unexpected error on idle client", err);
+// 	process.exit(-1);
+// });
 
-pool.on("connect", () => {
-	logger.info("New database connection established");
-});
+// pool.on("connect", () => {
+// 	logger.info("New database connection established");
+// });
 
-// Add some basic metrics
-pool.on("acquire", () => {
-	logger.debug(
-		`Database connection acquired. Total: ${pool.totalCount}, Idle: ${pool.idleCount}, Waiting: ${pool.waitingCount}`
-	);
-});
+// // Add some basic metrics
+// pool.on("acquire", () => {
+// 	logger.debug(
+// 		`Database connection acquired. Total: ${pool.totalCount}, Idle: ${pool.idleCount}, Waiting: ${pool.waitingCount}`
+// 	);
+// });
 
 export const db = drizzle(pool, { schema });
 
