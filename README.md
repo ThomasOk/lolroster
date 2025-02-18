@@ -1,48 +1,41 @@
-#  LoL Random Lineup
+# Random Roster
 
 A web application that allows users to vote on hypothetical matchups between professional League of Legends players.
 
-🌐 Live Demo: https://lol-random-lineup.netlify.app/
+🌐 Live Demo: https://random-roster.onrender.com/
 
 ## 📝 Description
 
 This application randomly generates two teams of 5 professional players, one for each role, and lets users vote for the team they think would be stronger. It currently features players from the European league (LEC).
 
+![Random Roster Overview](./assets/matchup.PNG)
+
+## 🛠️ Project Architecture
+
+The frontend is organized using a feature-based structure for better maintainability and the backend follows a clear separation of concerns.
+
 ### ✨ Current Features
 
-- Random generation of teams
-- Display of player information:
-  - Photo
-  - Nickname
-  - Country of origin (with flag)
-  - Role (with icon)
-- Interactive voting system with progress bar
-- Links to players' Leaguepedia profiles
+- Random generation of teams each day
+- Login with OAuth
+- Voting system
+- Comments section
 
 ## 🚧 Project Status
 
-The project is currently under development. While the frontend is implemented, the backend is still in progress..
+The project is currently under development.
 
 ### Frontend :
-- Full user interface developed with React and TypeScript
+
+- React 18 with Typescript
 - Styling with Tailwind CSS
-- Custom UI components
-- State management with Context API
+- React Query
 - Routing with React Router
 
-### Backend (In Development):
-The following features are planned:
-- Daily automatic matchup generation
-- Vote persistence
-- Previous matchups history
-- Comment system
+### Backend :
+
+- Node.js with Express
+- Typescript
 - RESTful API
-
-## 🛠️ Technologies Used
-
-- React 18
-- TypeScript
-- Tailwind CSS
-- React Router
-- Context API
-- Vite
+- PostgreSQL with Drizzle ORM
+- Zod validation
