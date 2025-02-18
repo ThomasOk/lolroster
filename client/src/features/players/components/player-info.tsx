@@ -1,5 +1,5 @@
 import React from "react";
-import { Player, Role } from "../types/player-types";
+import { Player, PlayerRoleType } from "../types/player-types";
 import BotIconSvg from "../assets/roles/bot.svg";
 import SupportIconSvg from "../assets/roles/support.svg";
 import MidIconSvg from "../assets/roles/mid.svg";
@@ -7,12 +7,14 @@ import JungleIconSvg from "../assets/roles/jungle.svg";
 import TopIconSvg from "../assets/roles/top.svg";
 import { countryToEmoji } from "../utils";
 
-const roleSvgIcons: { [key in Role]: React.FC<{ className?: string }> } = {
-	Bot: BotIconSvg,
-	Jungle: JungleIconSvg,
-	Mid: MidIconSvg,
-	Support: SupportIconSvg,
-	Top: TopIconSvg,
+const roleSvgIcons: {
+	[key in PlayerRoleType]: React.FC<{ className?: string }>;
+} = {
+	BOT: BotIconSvg,
+	JUNGLE: JungleIconSvg,
+	MID: MidIconSvg,
+	SUPPORT: SupportIconSvg,
+	TOP: TopIconSvg,
 };
 
 type PlayerInfoProps = {
@@ -41,7 +43,7 @@ export const PlayerInfo = ({
 
 				<img
 					className={`border-2 w-36 h-36 sm:w-24 sm:h-24 md:w-36 md:h-36  object-cover ${backgroundColor}`}
-					src={player?.imageUrl}
+					src={`${import.meta.env.VITE_PUBLIC_FILE_URL}${player?.imagePath}`}
 					alt={`${player?.pseudo} photo`}
 				/>
 

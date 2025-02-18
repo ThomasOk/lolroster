@@ -1,5 +1,5 @@
 import { ContentLayout } from "@/components/layouts/content-layout";
-import { MatchCard } from "@/features/players/components/match-card";
+import { MatchCard } from "@/features/matchups/components/matchup-card";
 
 export const LandingRoute = () => {
 	return (
@@ -8,3 +8,5 @@ export const LandingRoute = () => {
 		</ContentLayout>
 	);
 };
+
+export default LandingRoute;

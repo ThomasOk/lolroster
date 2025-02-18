@@ -1,5 +1,5 @@
-import { Player } from "../types/player-types";
-import { PlayerInfo } from "./player-info";
+import { Player } from "@/features/players/types/player-types";
+import { PlayerInfo } from "../../players/components/player-info";
 
 type TeamProps = {
 	players: Player[];

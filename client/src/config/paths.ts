@@ -8,6 +8,10 @@ export const paths = {
 		getHref: () => "/about",
 	},
 	auth: {
+		userInfoSetup: {
+			path: "/user-info-setup",
+			getHref: () => "/user-info-setup",
+		},
 		register: {
 			path: "/sign-up",
 			getHref: () => "/sign-up",

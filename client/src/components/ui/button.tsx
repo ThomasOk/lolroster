@@ -12,13 +12,15 @@ const buttonVariants = cva(
 			variant: {
 				default:
 					"text-mtext bg-main border-2 border-border shadow-shadow hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none",
-				noShadow: "text-mtext bg-main border-2 border-border",
+				noShadow: "text-mtext bg-white border-2 border-border",
 				neutral:
 					"bg-bw text-text border-2 border-border shadow-shadow hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none",
 				reverse:
 					"text-mtext bg-main border-2 border-border hover:translate-x-reverseBoxShadowX hover:translate-y-reverseBoxShadowY hover:shadow-shadow",
 				blue: "text-mtext bg-blue-200 border-2 border-border shadow-shadow hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none active:bg-blue-100",
 				red: "text-mtext bg-red-200 border-2 border-border shadow-shadow hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none active:bg-red-100",
+				white:
+					"text-mtext bg-white border-2 border-border shadow-shadow hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none",
 			},
 			size: {
 				default: "h-10 px-4 py-2",

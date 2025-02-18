@@ -1,15 +1,32 @@
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { ThemeProvider } from "@/components/theme/theme-provider";
-import { PlayersProvider } from "@/features/players/context/players-context";
-import { type ReactNode } from "react";
+import { useState, type ReactNode } from "react";
+import { queryConfig } from "@/lib/react-query";
+import { Toaster } from "@/components/ui/sonner";
 
 type AppProviderProps = {
 	children: ReactNode;
 };
 
 export const AppProvider = ({ children }: AppProviderProps) => {
+	const [queryClient] = useState(
+		() => new QueryClient({ defaultOptions: queryConfig })
+	);
 	return (
-		<ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
-			<PlayersProvider>{children}</PlayersProvider>
-		</ThemeProvider>
+		<QueryClientProvider client={queryClient}>
+			<ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
+				{children}
+				<Toaster
+					toastOptions={{
+						className: "border-2 border-black text-black",
+						style: {
+							background: "white",
+						},
+					}}
+				/>
+			</ThemeProvider>
+			<ReactQueryDevtools initialIsOpen={false} />
+		</QueryClientProvider>
 	);
 };

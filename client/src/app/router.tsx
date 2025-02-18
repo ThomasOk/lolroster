@@ -1,24 +1,33 @@
-import { createBrowserRouter } from "react-router";
-import { RouterProvider } from "react-router/dom";
+import { BrowserRouter, Routes, Route } from "react-router";
 import { paths } from "@/config/paths";
+import { Suspense, lazy } from "react";
+import { AuthProvider } from "@/features/auth/context/auth-context";
+import { Spinner } from "@/components/spinner";
+import { SetupRoute } from "@/features/auth/components/setup-route";
 
-const router = createBrowserRouter([
-	{
-		path: paths.home.path,
-		lazy: async () => {
-			const { LandingRoute } = await import("./routes/landing");
-			return { Component: LandingRoute };
-		},
-	},
-	{
-		path: paths.about.path,
-		lazy: async () => {
-			const { AboutRoute } = await import("./routes/about");
-			return { Component: AboutRoute };
-		},
-	},
-]);
+const LandingRoute = lazy(() => import("./routes/landing"));
+const AboutRoute = lazy(() => import("./routes/about"));
+const UserInfoSetupRoute = lazy(() => import("./routes/user-info-setup"));
 
 export const AppRouter = () => {
-	return <RouterProvider router={router} />;
+	return (
+		<BrowserRouter>
+			<AuthProvider>
+				<Suspense fallback={<Spinner />}>
+					<Routes>
+						<Route path={paths.home.path} element={<LandingRoute />} />
+						<Route path={paths.about.path} element={<AboutRoute />} />
+						<Route
+							path={paths.auth.userInfoSetup.path}
+							element={
+								<SetupRoute>
+									<UserInfoSetupRoute />
+								</SetupRoute>
+							}
+						/>
+					</Routes>
+				</Suspense>
+			</AuthProvider>
+		</BrowserRouter>
+	);
 };

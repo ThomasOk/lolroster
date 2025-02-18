@@ -17,28 +17,22 @@ export const AboutRoute = () => {
 					<section>
 						<h3 className="text-lg font-bold mb-2">❓ What is it?</h3>
 						<p>
-							The idea is to create hypothetical matchups between professional
-							League of Legends players, and you get to vote for the best team!
+							The idea is to create daily hypothetical matchups between
+							professional League of Legends players, and you get to vote for
+							the best team!
 						</p>
 						<p>
 							Each team is randomly generated from a selection of pro players.
 							Currently, only players from the European League (LEC) are
 							included.
 						</p>
-						<p>
-							For now, since the daily automatic team generation is still a work
-							in progress, you can generate new teams manually.
-						</p>
 					</section>
 
 					<section className="mt-4">
 						<h3 className="text-lg font-bold mb-2">🔜 What's coming next?</h3>
 						<p>
-							Right now, the app is an interactive prototype, meaning that your
-							votes and interactions are temporary and will reset when you
-							refresh the page. Upcoming updates will introduce features such as
-							daily automatic matchup generation, saving votes, matchups history
-							and possibly a comment section.
+							Upcoming updates will introduce features such as matchups history
+							and an improved comment section.
 						</p>
 					</section>
 				</div>
@@ -46,3 +40,5 @@ export const AboutRoute = () => {
 		</ContentLayout>
 	);
 };
+
+export default AboutRoute;
