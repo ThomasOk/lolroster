@@ -70,8 +70,6 @@ export const getMatchupById = async (id: number) => {
 
 export const updateVotes = async (matchId: number, team: "blue" | "red") => {
 	try {
-		console.log("Service - Updating votes for:", matchId, team);
-
 		const result = await db
 			.update(matchupsTable)
 			.set(
@@ -82,7 +80,6 @@ export const updateVotes = async (matchId: number, team: "blue" | "red") => {
 			.where(eq(matchupsTable.id, matchId))
 			.returning();
 
-		console.log("Service - Update result:", result);
 		return result;
 	} catch (error) {
 		console.error("Service - Error updating votes:", error);

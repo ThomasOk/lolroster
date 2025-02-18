@@ -99,7 +99,6 @@ router.get(
 	(req, res) => {
 		const { user, provider } = req.user as any;
 		sendAuthTokens(res, user, provider);
-		console.log("display name : " + user.displayName);
 		const redirectUrl = user.displayName
 			? `${process.env.FRONTEND_URL}?auth_status=success`
 			: `${process.env.FRONTEND_URL}/user-info-setup?auth_status=success`;

@@ -4,7 +4,8 @@ import { AppError } from "@/utils/error";
 import { StatusCodes } from "http-status-codes";
 import { usersTable } from "@/db/schema/users";
 import { db } from "@/db";
-import { eq } from "drizzle-orm";
+import { and, eq } from "drizzle-orm";
+import { votesTable } from "@/db/schema";
 
 export const getMatchupComments = async (req: Request, res: Response) => {
 	const matchupId = parseInt(req.params.matchupId);
@@ -15,7 +16,6 @@ export const getMatchupComments = async (req: Request, res: Response) => {
 
 	const comments = await commentService.getMatchupComments(matchupId);
 
-	// Pour chaque commentaire, récupérer les informations de l'utilisateur
 	const commentsWithUserInfo = await Promise.all(
 		comments.map(async (comment) => {
 			const user = await db
@@ -27,9 +27,25 @@ export const getMatchupComments = async (req: Request, res: Response) => {
 				.where(eq(usersTable.id, comment.userId))
 				.limit(1);
 
+			const vote = await db
+				.select({
+					team: votesTable.team,
+				})
+				.from(votesTable)
+				.where(
+					and(
+						eq(votesTable.userId, comment.userId),
+						eq(votesTable.matchupId, matchupId)
+					)
+				)
+				.limit(1);
+
 			return {
 				...comment,
-				user: user[0],
+				user: {
+					...user[0],
+					userVote: vote[0]?.team || null,
+				},
 			};
 		})
 	);
