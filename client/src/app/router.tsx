@@ -8,6 +8,7 @@ import { SetupRoute } from "@/features/auth/components/setup-route";
 const LandingRoute = lazy(() => import("./routes/landing"));
 const AboutRoute = lazy(() => import("./routes/about"));
 const UserInfoSetupRoute = lazy(() => import("./routes/user-info-setup"));
+const NotFoundPage = lazy(() => import("./routes/not-found"));
 
 export const AppRouter = () => {
 	return (
@@ -25,9 +26,12 @@ export const AppRouter = () => {
 								</SetupRoute>
 							}
 						/>
+						<Route path="*" element={<NotFoundPage />} />
 					</Routes>
 				</Suspense>
 			</AuthProvider>
 		</BrowserRouter>
 	);
 };
+
+export default NotFoundPage;
